@@ -29,16 +29,15 @@ jobs:
       - name: Install deps
         run: npm install
 
-      - name: Build
+      - name: Build (static export via output: export)
         run: NEXT_PUBLIC_BASE_PATH=/fotifo npm run build
 
-      - name: Export static
-        run: NEXT_PUBLIC_BASE_PATH=/fotifo npm run export
-
       - name: Add .nojekyll
-        run: touch out/.nojekyll
+        run: |
+          mkdir -p out
+          touch out/.nojekyll
 
-      - name: Upload artifact
+      - name: Upload artifact (out/)
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
