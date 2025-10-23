@@ -6,10 +6,8 @@ const nextConfig = {
   basePath: base,
   assetPrefix: base ? `${base}/` : undefined,
   trailingSlash: true,
-  images: { unoptimized: true },
-  experimental: {
-    optimizeCss: true
-  }
+  images: { unoptimized: true }
 };
 
 export default nextConfig;
+

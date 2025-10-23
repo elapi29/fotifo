@@ -1,5 +1,8 @@
 import Image from 'next/image';
-import PhoneSignup from '@/components/PhoneSignup';
+import dynamic from 'next/dynamic';
+
+// ⬇️ Import dinámico para que NO se ejecute en el build del servidor
+const PhoneSignup = dynamic(() => import('@/components/PhoneSignup'), { ssr: false });
 
 export const revalidate = 3600;
 
