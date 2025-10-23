@@ -2,7 +2,7 @@ name: Deploy Fotifo to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -24,20 +24,20 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: "20"
 
       - name: Install deps
         run: npm install
 
-      - name: Build (static export via output: export)
+      - name: "Build (static export via output: export)"
         run: NEXT_PUBLIC_BASE_PATH=/fotifo npm run build
 
-      - name: Add .nojekyll
+      - name: "Ensure out/ and .nojekyll"
         run: |
           mkdir -p out
           touch out/.nojekyll
 
-      - name: Upload artifact (out/)
+      - name: "Upload artifact (out/)"
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
