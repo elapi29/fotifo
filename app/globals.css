@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+
+html { scroll-behavior: smooth; }
+
+/* Accesibilidad: outline visible en focus */
+*:focus-visible { outline: 3px solid rgb(47 116 255); outline-offset: 2px; }
